@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Sayed | Portfolio</title>
-  <meta name="description" content="Sayed - Cyber Expert & Businessman from Khulna, Bangladesh." />
+  <title>Abu Sayeed | Portfolio</title>
+  <meta name="description" content="Abu Sayeed - Cyber Expert & Businessman from Khulna, Bangladesh." />
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
@@ -107,6 +107,403 @@
     .hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:28px;align-items:center}
 
     .badge{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.06);
+      color:rgba(255,255,255,0.85);font-size:14px;width:fit-content;margin-bottom:18px;
+    }
+    .badge i{color:var(--secondary)}
+
+    .hero h1{font-size:46px;line-height:1.15;color:#fff;margin-bottom:14px}
+    .hero h1 span{
+      background:linear-gradient(90deg,var(--secondary),var(--primary),var(--accent));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .hero p{font-size:16px;line-height:1.7;color:rgba(255,255,255,0.78);margin-bottom:22px;max-width:560px}
+
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+
+    .hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+    .stat{
+      background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+      border-radius:16px;padding:14px;
+    }
+    .stat h3{font-size:22px;color:#fff;margin-bottom:4px}
+    .stat p{font-size:13px;color:rgba(255,255,255,0.7)}
+
+    .hero-card{
+      background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+      border-radius:22px;padding:22px;box-shadow:var(--shadow);
+      position:relative;overflow:hidden;
+    }
+    .hero-card::before{
+      content:"";position:absolute;inset:-2px;
+      background:radial-gradient(800px 500px at 30% 20%, rgba(14,165,233,0.2), transparent 55%),
+               radial-gradient(800px 500px at 80% 70%, rgba(79,70,229,0.18), transparent 55%);
+      z-index:-1;
+    }
+
+    .profile{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+    .profile-img{
+      width:80px;height:80px;border-radius:18px;object-fit:cover;
+      border:2px solid rgba(255,255,255,0.18);
+      background:rgba(255,255,255,0.06);
+    }
+    .profile h2{font-size:20px;color:#fff;margin-bottom:4px}
+    .profile small{display:block;color:rgba(255,255,255,0.7);font-size:13px;line-height:1.35}
+
+    .hero-card ul{list-style:none;margin-top:14px;display:grid;gap:10px}
+    .hero-card li{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.78);font-size:14px}
+    .hero-card li i{color:var(--accent)}
+
+    .grid{display:grid;gap:16px}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+    .card{
+      background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+      border-radius:18px;padding:18px;
+      transition:transform .2s ease, border .2s ease, background .2s ease;
+    }
+    .card:hover{transform:translateY(-3px);background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.2)}
+    .card h3{color:#fff;font-size:18px;margin-bottom:8px}
+    .card p{color:rgba(255,255,255,0.74);font-size:14px;line-height:1.7;word-break:break-word}
+
+    .socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .social-icon{
+      width:44px;height:44px;border-radius:14px;display:grid;place-items:center;
+      text-decoration:none;color:#fff;background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.12);transition:transform .2s ease, background .2s ease;
+    }
+    .social-icon:hover{transform:translateY(-2px);background:rgba(255,255,255,0.1)}
+
+    footer{
+      padding:26px 22px;text-align:center;color:rgba(255,255,255,0.6);
+      border-top:1px solid rgba(255,255,255,0.06);
+      background:rgba(5,8,20,0.55);backdrop-filter:blur(14px);
+    }
+
+    .gsap-reveal-left,.gsap-reveal-right,.gsap-reveal-up{opacity:0;transform:translateY(18px)}
+
+    @media (max-width:950px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero h1{font-size:40px}
+      .grid-3,.grid-2{grid-template-columns:1fr}
+    }
+    @media (max-width:720px){
+      .nav-links{display:none}
+      .hamburger{display:inline-grid;place-items:center}
+      section{padding:96px 18px 60px}
+      .hero h1{font-size:34px}
+      .hero-stats{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="loader" id="loader"><div class="spinner"></div></div>
+  <div id="particles"></div>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="logo"><i class="fa-solid fa-code"></i> Abu Sayeed</a>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#who-i-am">Who I Am</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#links">Links</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="btn btn-ghost" id="themeToggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+        <button class="hamburger" id="menuToggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="badge gsap-reveal-up"><i class="fa-solid fa-sparkles"></i> Official Profile</div>
+          <h1 class="gsap-reveal-up">Hi, I'm <span>Abu Sayeed</span></h1>
+          <p class="gsap-reveal-up">Cyber Expert & Businessman from Khulna, Bangladesh (9100).</p>
+
+          <div class="hero-cta gsap-reveal-up">
+            <a class="btn btn-primary" href="#contact"><i class="fa-solid fa-paper-plane"></i> Contact Me</a>
+            <a class="btn btn-ghost" href="#links"><i class="fa-solid fa-link"></i> My Links</a>
+          </div>
+
+          <div class="hero-stats gsap-reveal-up">
+            <div class="stat"><h3>24/7</h3><p>Active mindset</p></div>
+            <div class="stat"><h3>Secure</h3><p>Cyber focus</p></div>
+            <div class="stat"><h3>Growth</h3><p>Business vision</p></div>
+          </div>
+        </div>
+
+        <div class="hero-card gsap-reveal-right">
+          <div class="profile">
+            <img class="profile-img" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyWnmfcjpt-3kuLOQMLJrmctQsC5fj15VFeWJuokum4BOCgwAkfYK0AxkN2xCpsyz7qFXZkPs4PzmvKQbZWkBsgc4x1vPsqLLtlNNhX5zYkgWcDNxw7Kf-u-rMg58lbuI972WApCjV0a3bWX3B4-HIUmz33OobRgSL2-TmZBbH7vEgQK7sjy-KJ3Kb1q68/s4096/Messenger_creation_5D3A6DFE-CFC6-449F-BBB7-8E703D7CFF8F.jpeg" alt="Abu Sayeed" />
+            <div>
+              <h2>Abu Sayeed</h2>
+              <small>Cyber Expert & Businessman<br>Khulna, Bangladesh 9100</small>
+            </div>
+          </div>
+
+          <ul>
+            <li><i class="fa-solid fa-check"></i> Cyber & Security mindset</li>
+            <li><i class="fa-solid fa-check"></i> Business growth focused</li>
+            <li><i class="fa-solid fa-check"></i> Serious & professional</li>
+          </ul>
+
+          <div class="socials">
+            <a class="social-icon" href="https://www.facebook.com/ADMIN.SAYEED" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a class="social-icon" href="https://www.instagram.com/sayeed_official_3" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a class="social-icon" href="https://t.me/sayeed_official_3" target="_blank" rel="noopener" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            <a class="social-icon" href="https://youtube.com/@target_king_officials?si=mcERGC-JMenl44mm" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a class="social-icon" href="mailto:lifeline1520@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a class="social-icon" href="tel:+8801953369719" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+            <a class="social-icon" href="https://maps.google.com/?q=Khulna%2C%20Bangladesh%209100" target="_blank" rel="noopener" aria-label="Address"><i class="fa-solid fa-location-dot"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="who-i-am">
+    <div class="container">
+      <h2 class="section-title gsap-reveal-left">Who I Am</h2>
+      <p class="section-subtitle gsap-reveal-left">A quick snapshot of what I do and how I think.</p>
+
+      <div class="grid grid-3">
+        <div class="card gsap-reveal-up">
+          <h3><i class="fa-solid fa-shield-halved"></i> Cyber</h3>
+          <p>Focused on online safety, security awareness, and protecting digital identity.</p>
+        </div>
+        <div class="card gsap-reveal-up">
+          <h3><i class="fa-solid fa-briefcase"></i> Business</h3>
+          <p>Working with a growth mindset and a clear vision to build strong value.</p>
+        </div>
+        <div class="card gsap-reveal-up">
+          <h3><i class="fa-solid fa-bolt"></i> Discipline</h3>
+          <p>Consistency, clean work, and long-term focus are my daily habits.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title gsap-reveal-left">About</h2>
+      <p class="section-subtitle gsap-reveal-left">A little more about me.</p>
+
+      <div class="grid grid-2">
+        <div class="card gsap-reveal-left">
+          <h3>Title</h3>
+          <p>Cyber Expert & Businessman</p>
+        </div>
+        <div class="card gsap-reveal-right">
+          <h3>Address</h3>
+          <p>Khulna, Bangladesh 9100</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title gsap-reveal-left">Skills</h2>
+      <p class="section-subtitle gsap-reveal-left">Tools and tech I work with.</p>
+
+      <div class="grid grid-3">
+        <div class="card gsap-reveal-up">
+          <h3><i class="devicon-html5-plain colored"></i> HTML</h3>
+          <p>Clean structure and modern web layout.</p>
+        </div>
+        <div class="card gsap-reveal-up">
+          <h3><i class="devicon-css3-plain colored"></i> CSS</h3>
+          <p>Responsive UI and professional design.</p>
+        </div>
+        <div class="card gsap-reveal-up">
+          <h3><i class="devicon-javascript-plain colored"></i> JavaScript</h3>
+          <p>Interactive experience and smooth UX.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="links">
+    <div class="container">
+      <h2 class="section-title gsap-reveal-left">Links</h2>
+      <p class="section-subtitle gsap-reveal-left">My official contact links.</p>
+
+      <div class="grid grid-2">
+        
+        <a class="card gsap-reveal-left" href="https://www.facebook.com/ADMIN.SAYEED" target="_blank" rel="noopener" style="text-decoration:none;">
+          <h3><i class="fa-brands fa-facebook"></i> Facebook</h3>
+          <p>ADMIN.SAYEED</p>
+        </a>
+
+        <a class="card gsap-reveal-right" href="https://www.instagram.com/sayeed_official_3" target="_blank" rel="noopener" style="text-decoration:none;">
+          <h3><i class="fa-brands fa-instagram"></i> Instagram</h3>
+          <p>@sayeed_official_3</p>
+        </a>
+
+        <a class="card gsap-reveal-left" href="https://t.me/sayeed_official_3" target="_blank" rel="noopener" style="text-decoration:none;">
+          <h3><i class="fa-brands fa-telegram"></i> Telegram</h3>
+          <p>@sayeed_official_3</p>
+        </a>
+
+        <a class="card gsap-reveal-right" href="https://youtube.com/@target_king_officials?si=mcERGC-JMenl44mm" target="_blank" rel="noopener" style="text-decoration:none;">
+          <h3><i class="fa-brands fa-youtube"></i> YouTube</h3>
+          <p>@target_king_officials</p>
+        </a>
+
+        <a class="card gsap-reveal-left" href="mailto:lifeline1520@gmail.com" style="text-decoration:none;">
+          <h3><i class="fa-solid fa-envelope"></i> Email</h3>
+          <p>lifeline1520@gmail.com</p>
+        </a>
+
+        <a class="card gsap-reveal-right" href="tel:+8801953369719" style="text-decoration:none;">
+          <h3><i class="fa-solid fa-phone"></i> Number</h3>
+          <p>01953369719</p>
+        </a>
+
+        <a class="card gsap-reveal-left" href="https://maps.google.com/?q=Khulna%2C%20Bangladesh%209100" target="_blank" rel="noopener" style="text-decoration:none;">
+          <h3><i class="fa-solid fa-location-dot"></i> Address</h3>
+          <p>Khulna, Bangladesh 9100</p>
+        </a>
+
+        <div class="card gsap-reveal-right">
+          <h3><i class="fa-solid fa-user-tie"></i> Title</h3>
+          <p>Cyber Expert & Businessman</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title gsap-reveal-left">Contact</h2>
+      <p class="section-subtitle gsap-reveal-left">Message me anytime.</p>
+
+      <div class="grid grid-2">
+        <div class="card gsap-reveal-left">
+          <h3><i class="fa-solid fa-envelope"></i> Email</h3>
+          <p><a href="mailto:lifeline1520@gmail.com" style="color:inherit;text-decoration:none;">lifeline1520@gmail.com</a></p>
+        </div>
+
+        <div class="card gsap-reveal-right">
+          <h3><i class="fa-solid fa-phone"></i> Number</h3>
+          <p><a href="tel:+8801953369719" style="color:inherit;text-decoration:none;">01953369719</a></p>
+        </div>
+
+        <div class="card gsap-reveal-left">
+          <h3><i class="fa-solid fa-location-dot"></i> Address</h3>
+          <p>Khulna, Bangladesh 9100</p>
+        </div>
+
+        <div class="card gsap-reveal-right">
+          <h3><i class="fa-brands fa-telegram"></i> Telegram</h3>
+          <p><a href="https://t.me/sayeed_official_3" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">@sayeed_official_3</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> Abu Sayeed. All Rights Reserved.</footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script>
+    const loader = document.getElementById("loader");
+    window.addEventListener("load", () => setTimeout(() => loader.classList.add("hide"), 400));
+
+    const particleContainer = document.getElementById("particles");
+    for (let i = 0; i < 40; i++) {
+      const p = document.createElement("span");
+      p.classList.add("particle");
+      p.style.left = Math.random() * 100 + "%";
+      p.style.top = Math.random() * 120 + "%";
+      p.style.animationDuration = (8 + Math.random() * 10) + "s";
+      p.style.opacity = Math.random() * 0.8;
+      p.style.transform = `scale(${0.5 + Math.random() * 1.2})`;
+      particleContainer.appendChild(p);
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const themeToggle = document.getElementById("themeToggle");
+    let isDark = true;
+    themeToggle.addEventListener("click", () => {
+      isDark = !isDark;
+      if (isDark) {
+        document.body.style.background = "";
+        themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+      } else {
+        document.body.style.background = "linear-gradient(180deg, #f8fafc, #e2e8f0 45%, #f8fafc)";
+        themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+      }
+    });
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuToggle.addEventListener("click", () => {
+      if (getComputedStyle(navLinks).display === "none") {
+        navLinks.style.display = "flex";
+        navLinks.style.flexDirection = "column";
+        navLinks.style.position = "absolute";
+        navLinks.style.top = "64px";
+        navLinks.style.right = "16px";
+        navLinks.style.background = "rgba(5, 8, 20, 0.85)";
+        navLinks.style.backdropFilter = "blur(14px)";
+        navLinks.style.border = "1px solid rgba(255, 255, 255, 0.12)";
+        navLinks.style.borderRadius = "16px";
+        navLinks.style.padding = "12px";
+        navLinks.style.gap = "8px";
+        navLinks.style.width = "220px";
+        navLinks.style.zIndex = "99";
+      } else {
+        navLinks.removeAttribute("style");
+      }
+    });
+
+    document.querySelectorAll(".nav-links a").forEach((a) => {
+      a.addEventListener("click", () => {
+        if (window.innerWidth <= 720) navLinks.removeAttribute("style");
+      });
+    });
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray(".gsap-reveal-left").forEach((el) => {
+      gsap.fromTo(el, { opacity: 0, x: -30 }, {
+        opacity: 1, x: 0, duration: 0.8, ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 85%" }
+      });
+    });
+
+    gsap.utils.toArray(".gsap-reveal-right").forEach((el) => {
+      gsap.fromTo(el, { opacity: 0, x: 30 }, {
+        opacity: 1, x: 0, duration: 0.8, ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 85%" }
+      });
+    });
+
+    gsap.utils.toArray(".gsap-reveal-up").forEach((el) => {
+      gsap.fromTo(el, { opacity: 0, y: 18 }, {
+        opacity: 1, y: 0, duration: 0.8, ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 90%" }
+      });
+    });
+  </script>
+</body>
+</html>
       display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:999px;
       border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.06);
       color:rgba(255,255,255,0.85);font-size:14px;width:fit-content;margin-bottom:18px;
